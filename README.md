@@ -53,6 +53,12 @@ cd project
 cp .env.example .env
 ```
 
+Создать ключ приложения
+
+```bash
+php artisan key:generate
+```
+
 Заполнить необходимые переменные окружения:
 
 #### Groq API
@@ -89,12 +95,6 @@ docker compose up -d --build
 
 ```bash
 docker compose exec app php artisan migrate
-```
-
-Если ключ приложения отсутствует, сгенерировать его:
-
-```bash
-docker compose exec app php artisan key:generate
 ```
 
 После запуска API будет доступно по адресу:
