@@ -1,0 +1,170 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "AI Support API",
+        "description": "API for contact requests with AI analysis",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/contact": {
+            "post": {
+                "tags": [
+                    "Contacts"
+                ],
+                "summary": "Create contact request",
+                "operationId": "d2508a39c18f3435fa351a6aba1f8dbc",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "phone",
+                                    "comment"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Max"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "max@test.com"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "+799999999"
+                                    },
+                                    "comment": {
+                                        "type": "string",
+                                        "example": "Не работает форма"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success"
+                    },
+                    "429": {
+                        "description": "Too Many Requests."
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/health": {
+            "get": {
+                "tags": [
+                    "Health"
+                ],
+                "summary": "Check service health",
+                "operationId": "24b74a809d1f5913ec7794d867bc24f4",
+                "responses": {
+                    "200": {
+                        "description": "Service is healthy",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "ok"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too Many Requests."
+                    }
+                }
+            }
+        },
+        "/api/metrics": {
+            "get": {
+                "tags": [
+                    "Metrics"
+                ],
+                "summary": "Get contacts metrics",
+                "operationId": "c0f1186ba74b30d4ac71735318f48807",
+                "responses": {
+                    "200": {
+                        "description": "Metrics retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "total": {
+                                            "type": "integer",
+                                            "example": 16
+                                        },
+                                        "positive": {
+                                            "type": "integer",
+                                            "example": 2
+                                        },
+                                        "neutral": {
+                                            "type": "integer",
+                                            "example": 0
+                                        },
+                                        "negative": {
+                                            "type": "integer",
+                                            "example": 14
+                                        },
+                                        "questions": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "support": {
+                                            "type": "integer",
+                                            "example": 0
+                                        },
+                                        "feedback": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "complaints": {
+                                            "type": "integer",
+                                            "example": 14
+                                        },
+                                        "other": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too Many Requests."
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Contacts",
+            "description": "Contacts"
+        },
+        {
+            "name": "Health",
+            "description": "Health"
+        },
+        {
+            "name": "Metrics",
+            "description": "Metrics"
+        }
+    ]
+}
