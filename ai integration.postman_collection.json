@@ -1,0 +1,79 @@
+{
+  "info": {
+    "_postman_id": "ddde5eba-080c-4d8c-9bac-301453ad70ec",
+    "name": "ai integration",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "32663079"
+  },
+  "item": [
+    {
+      "name": "coment",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Maxim\",\n    \"email\": \"kleok0039@gmail.com\",\n    \"phone\": \"89631233662\",\n    \"comment\": \"Сервис хороший, когда обновление?\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/contact",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "contact"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "healthcheck",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/health",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "metrics",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/metrics",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "metrics"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
